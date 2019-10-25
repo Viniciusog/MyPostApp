@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "415952290638",
+    "firebase_url": "https://mypostapp-31555.firebaseio.com",
+    "project_id": "mypostapp-31555",
+    "storage_bucket": "mypostapp-31555.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415952290638:android:998b489a52a36430aa541f",
+        "android_client_info": {
+          "package_name": "com.viniciusog.mypostapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415952290638-4fvg1lq0dgevugjrkn8f2a2mt2unp5so.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.viniciusog.mypostapp",
+            "certificate_hash": "898f26f3174acce7b9f53ef455d4b391b778d887"
+          }
+        },
+        {
+          "client_id": "415952290638-dea3umsre2g4i4v0elivsl6986d30b2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi6JCLuKM158VyMJFJxHn5MFuGakBJyTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415952290638-dea3umsre2g4i4v0elivsl6986d30b2s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
