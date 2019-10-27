@@ -74,7 +74,7 @@ public class CadastroActivity extends AppCompatActivity {
         });
     }
 
-    public void cadastrarUsuario() {
+    private void cadastrarUsuario() {
         progressBar.setVisibility(View.VISIBLE);
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
@@ -123,7 +123,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-    public void inicializarComponentes() {
+    private void inicializarComponentes() {
 
         editNome = findViewById(R.id.editCadastroNome);
         editEmail = findViewById(R.id.editCadastroEmail);
