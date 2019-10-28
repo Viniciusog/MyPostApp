@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="61dp"
     android:background="@android:color/white">
 
     <androidx.appcompat.widget.Toolbar
@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        app:titleTextColor="@android:color/white"
+        android:elevation="5dp"
         android:minHeight="?attr/actionBarSize"
-        tools:targetApi="LOLLIPOP"
         android:theme="?attr/actionBarTheme"
-        android:elevation="5dp"/>
+        app:titleTextColor="@android:color/white"
+        tools:targetApi="LOLLIPOP" />
 </FrameLayout>

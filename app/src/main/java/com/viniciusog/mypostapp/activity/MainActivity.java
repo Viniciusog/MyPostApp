@@ -27,10 +27,7 @@ public class MainActivity extends AppCompatActivity {
         //Configura a toolbar
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         toolbar.setTitle("Post App");
-        setSupportActionBar( toolbar );
-
-
-
+        setSupportActionBar(toolbar);
 
 
     }
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch ( item.getItemId() ) {
+        switch (item.getItemId()) {
             case R.id.menu_sair: {
                 deslogarUsuario();
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
