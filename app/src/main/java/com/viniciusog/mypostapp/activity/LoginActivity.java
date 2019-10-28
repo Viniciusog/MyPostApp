@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -107,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void abrirCadastro(View view) {
+    public void abrirCadastro(View view) {
         Intent i = new Intent(LoginActivity.this, CadastroActivity.class);
         startActivity(i);
     }
