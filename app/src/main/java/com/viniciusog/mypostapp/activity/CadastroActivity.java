@@ -87,14 +87,23 @@ public class CadastroActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if ( task.isSuccessful() ) {
-                    progressBar.setVisibility(View.GONE);
+                    try {
+                        progressBar.setVisibility(View.GONE);
 
-                    Toast.makeText(CadastroActivity.this,
-                            "Cadastrado com sucesso!",
-                            Toast.LENGTH_SHORT).show();
+                        //Salvar dados do usuário no Firebase
+                        String idUsuario = task.getResult().getUser().getUid();
+                        usuario.setId( idUsuario );
+                        usuario.salvar();
 
-                    startActivity( new Intent(CadastroActivity.this, MainActivity.class));
-                    finish();
+                        Toast.makeText(CadastroActivity.this,
+                                "Cadastrado com sucesso!",
+                                Toast.LENGTH_SHORT).show();
+
+                        startActivity( new Intent(CadastroActivity.this, MainActivity.class));
+                        finish();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                 } else {
                      progressBar.setVisibility(View.GONE);
