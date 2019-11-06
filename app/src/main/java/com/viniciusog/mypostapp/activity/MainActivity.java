@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Carregar o Feed assim que executar a main activity
         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
+        
 
 
     }

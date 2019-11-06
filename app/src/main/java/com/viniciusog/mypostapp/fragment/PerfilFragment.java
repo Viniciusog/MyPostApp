@@ -64,7 +64,7 @@ public class PerfilFragment extends Fragment {
         textSeguindo = view.findViewById(R.id.textSeguindo);
         buttonEditarPerfil = view.findViewById(R.id.buttonEditarPerfil);
         gridViewPerfil = view.findViewById(R.id.gridViewPerfil);
-        circleFotoPerfil = view.findViewById(R.id.circleImagePerfil);
+        circleFotoPerfil = view.findViewById(R.id.imageEditarPerfil);
     }
 
 }

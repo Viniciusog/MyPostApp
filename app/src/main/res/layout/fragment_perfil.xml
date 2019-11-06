@@ -18,7 +18,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/circleImagePerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/imageEditarPerfil" />
 
     <ProgressBar
         android:id="@+id/progressBarPerfil"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.25" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImagePerfil"
+        android:id="@+id/imageEditarPerfil"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
@@ -103,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/circleImagePerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/imageEditarPerfil" />
 
     <TextView
         android:id="@+id/textSeguindo"
@@ -117,7 +117,7 @@
         app:layout_constraintEnd_toEndOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/circleImagePerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/imageEditarPerfil" />
 
     <Button
         android:id="@+id/buttonEditarPerfil"

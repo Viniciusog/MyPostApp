@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.EditarPerfilActivity"
-            android:parentActivityName=".activity.MainActivity"/>
+            android:parentActivityName=".activity.EditarPerfilActivity"/>
         <activity
             android:name=".activity.CadastroActivity"
             android:theme="@style/AppThemeLogin" />

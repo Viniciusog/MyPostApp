@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.viniciusog.mypostapp.R;
 import com.viniciusog.mypostapp.helper.ConfiguracaoFirebase;
+import com.viniciusog.mypostapp.helper.UsuarioFirebase;
 import com.viniciusog.mypostapp.model.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
@@ -94,6 +95,9 @@ public class CadastroActivity extends AppCompatActivity {
                         String idUsuario = task.getResult().getUser().getUid();
                         usuario.setId( idUsuario );
                         usuario.salvar();
+
+                        //Salvar dados no profile do Firebase
+                        UsuarioFirebase.atualizarNomeUsuario( usuario.getNome() );
 
                         Toast.makeText(CadastroActivity.this,
                                 "Cadastrado com sucesso!",
