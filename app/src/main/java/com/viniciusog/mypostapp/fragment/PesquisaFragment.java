@@ -1,6 +1,7 @@
 package com.viniciusog.mypostapp.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.SearchView;
 
@@ -20,8 +22,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.viniciusog.mypostapp.R;
+import com.viniciusog.mypostapp.activity.PerfilAmigoActivity;
 import com.viniciusog.mypostapp.adapter.AdapterPesquisa;
 import com.viniciusog.mypostapp.helper.ConfiguracaoFirebase;
+import com.viniciusog.mypostapp.helper.RecyclerItemClickListener;
+import com.viniciusog.mypostapp.helper.UsuarioFirebase;
 import com.viniciusog.mypostapp.model.Usuario;
 
 import java.util.ArrayList;
@@ -62,6 +67,31 @@ public class PesquisaFragment extends Fragment {
         adapterPesquisa = new AdapterPesquisa(listaUsuarios, getActivity());
         recyclerPesquisa.setAdapter(adapterPesquisa);
 
+        //Adicionar clique em recyclerPesquisa
+        recyclerPesquisa.addOnItemTouchListener(new RecyclerItemClickListener(
+                getActivity(),
+                recyclerPesquisa,
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Usuario usuarioSelecionado = listaUsuarios.get(position);
+                        Intent i = new Intent(getActivity(), PerfilAmigoActivity.class);
+                        i.putExtra("usuarioSelecionado", usuarioSelecionado);
+                        startActivity( i );
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
+
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    }
+                }
+        ));
+
         //Configurar SearchView
         searchViewPesquisa.setQueryHint("Buscar Usuários");
         searchViewPesquisa.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -99,6 +129,12 @@ public class PesquisaFragment extends Fragment {
 
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         listaUsuarios.add(ds.getValue(Usuario.class));
+                    }
+                    //Retirar da lista o usuário que está fazendo a pesquisa
+                    for ( Usuario u : listaUsuarios) {
+                        if ( u.getId().equals(UsuarioFirebase.getDadosUsuarioLogado().getId())) {
+                            listaUsuarios.remove( u );
+                        }
                     }
 
                     adapterPesquisa.notifyDataSetChanged();

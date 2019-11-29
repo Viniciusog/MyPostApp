@@ -19,7 +19,7 @@
         android:padding="15dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageEditarPerfil"
+            android:id="@+id/imagePerfil"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:src="@drawable/avatar" />

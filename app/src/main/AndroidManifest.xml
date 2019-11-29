@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.EditarPerfilActivity"
-            android:parentActivityName=".activity.EditarPerfilActivity"/>
+        <activity android:name=".activity.PerfilAmigoActivity"></activity>
+        <activity
+            android:name=".activity.EditarPerfilActivity"
+            android:parentActivityName=".activity.EditarPerfilActivity" />
         <activity
             android:name=".activity.CadastroActivity"
             android:theme="@style/AppThemeLogin" />

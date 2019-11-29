@@ -18,7 +18,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageEditarPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/imagePerfil" />
 
     <ProgressBar
         android:id="@+id/progressBarPerfil"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.25" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageEditarPerfil"
+        android:id="@+id/imagePerfil"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
@@ -103,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/imageEditarPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/imagePerfil" />
 
     <TextView
         android:id="@+id/textSeguindo"
@@ -117,10 +117,10 @@
         app:layout_constraintEnd_toEndOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageEditarPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/imagePerfil" />
 
     <Button
-        android:id="@+id/buttonEditarPerfil"
+        android:id="@+id/buttonAcaoPerfil"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
@@ -148,5 +148,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonEditarPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAcaoPerfil" />
 </androidx.constraintlayout.widget.ConstraintLayout>

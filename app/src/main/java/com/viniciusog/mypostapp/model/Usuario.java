@@ -4,16 +4,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.viniciusog.mypostapp.helper.ConfiguracaoFirebase;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Usuario {
+public class Usuario implements Serializable {
 
     private String id;
     private String nome;
     private String email;
     private String senha;
     private String caminhoFoto;
+    private int seguidores = 0;
+    private int seguindo = 0;
+    private int postagens = 0;
 
     public Usuario() {
 
@@ -22,7 +26,7 @@ public class Usuario {
     public void salvar() {
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
         DatabaseReference usuariosRef = firebaseRef.child("usuarios").child( getId() );
-        usuariosRef.setValue( this );
+        usuariosRef.setValue( this ); //O objeto usuario será adicionado no firebase
     }
 
     public void atualizar() {
@@ -39,6 +43,9 @@ public class Usuario {
         usuarioMap.put("nome", getNome());
         usuarioMap.put("id", getId());
         usuarioMap.put("caminhoFoto", getCaminhoFoto());
+        usuarioMap.put("seguidores", getSeguidores());
+        usuarioMap.put("seguindo", getSeguindo());
+        usuarioMap.put("postagens", getPostagens());
 
         return usuarioMap;
     }
@@ -65,6 +72,31 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getSeguidores() {
+        return seguidores;
+    }
+
+    public void setSeguidores(int seguidores) {
+        this.seguidores = seguidores;
+    }
+
+    public int getSeguindo() {
+        return seguindo;
+    }
+
+    public void setSeguindo(int seguindo) {
+        this.seguindo = seguindo;
+    }
+
+    //Retorna a quantidade de postagens do usuário
+    public int getPostagens() {
+        return postagens;
+    }
+
+    public void setPostagens(int postagens) {
+        this.postagens = postagens;
     }
 
     @Exclude

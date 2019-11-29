@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +20,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.viniciusog.mypostapp.R;
@@ -182,7 +180,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
     }
 
     public void inicializarComponentes() {
-        imageEditarPerfil = findViewById(R.id.imageEditarPerfil);
+        imageEditarPerfil = findViewById(R.id.imagePerfil);
         textAlterarFoto = findViewById(R.id.textAlterarFotoPerfil);
         editNomePerfil = findViewById(R.id.editNomePerfil);
         buttonSalvarAlteracoes = findViewById(R.id.buttonSalvarAlteracoesPerfil);
