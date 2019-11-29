@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -206,6 +207,22 @@ public class PerfilAmigoActivity extends AppCompatActivity {
         //alterar texto do botão para seguindo
         buttonAcaoPerfil.setText("Seguindo");
         buttonAcaoPerfil.setOnClickListener(null);
+
+        //incrementar seguindo do usuario logado
+        int seguindo = ulogado.getSeguindo() + 1;
+        HashMap<String, Object> dadosSeguindo = new HashMap<>();
+        dadosSeguindo.put("seguindo", seguindo);
+        DatabaseReference usuarioSeguindo = usuariosRef
+                .child(ulogado.getId());
+        usuarioSeguindo.updateChildren(dadosSeguindo); //Vamos atualizar apenas o campo 'seguindo'
+
+        //incrementar seguidores do amigo
+        int seguidores = uAmigo.getSeguidores() + 1;
+        HashMap<String, Object> dadosSeguidores = new HashMap<>();
+        dadosSeguidores.put("seguidores", seguidores);
+        DatabaseReference usuarioSeguidores = usuariosRef
+                .child(uAmigo.getId());
+        usuarioSeguidores.updateChildren(dadosSeguidores);
     }
 
     private void inicializarComponentes() {

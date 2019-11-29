@@ -77,7 +77,7 @@ public class PesquisaFragment extends Fragment {
                         Usuario usuarioSelecionado = listaUsuarios.get(position);
                         Intent i = new Intent(getActivity(), PerfilAmigoActivity.class);
                         i.putExtra("usuarioSelecionado", usuarioSelecionado);
-                        startActivity( i );
+                        startActivity(i);
                     }
 
                     @Override
@@ -128,14 +128,13 @@ public class PesquisaFragment extends Fragment {
                     listaUsuarios.clear();
 
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        listaUsuarios.add(ds.getValue(Usuario.class));
-                    }
-                    //Retirar da lista o usuário que está fazendo a pesquisa
-                    for ( Usuario u : listaUsuarios) {
-                        if ( u.getId().equals(UsuarioFirebase.getDadosUsuarioLogado().getId())) {
-                            listaUsuarios.remove( u );
+                        Usuario usuario = ds.getValue(Usuario.class);
+                        //Verifica se é o usuário logado, se for, não adiciona na lista
+                        if (!usuario.getId().equals(UsuarioFirebase.getIdentificadorUsuario())) {
+                            listaUsuarios.add(ds.getValue(Usuario.class));
                         }
                     }
+
 
                     adapterPesquisa.notifyDataSetChanged();
                     //int total = listaUsuarios.size();
