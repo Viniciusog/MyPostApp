@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -24,6 +25,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.viniciusog.mypostapp.R;
 import com.viniciusog.mypostapp.helper.ConfiguracaoFirebase;
+import com.viniciusog.mypostapp.helper.Permissao;
 import com.viniciusog.mypostapp.helper.UsuarioFirebase;
 import com.viniciusog.mypostapp.model.Usuario;
 
@@ -41,12 +43,19 @@ public class EditarPerfilActivity extends AppCompatActivity {
     private StorageReference storageRef;
     private String identificadorUsuario;
 
+    private String[] permissoesNecessarias = new String[] {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+    };
+
     private static final int SELECAO_GALERIA = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_perfil);
+
+        //Validar Permissoes
+        Permissao.validarPermissoes(permissoesNecessarias, EditarPerfilActivity.this, 1);
 
         //Configurações iniciais
         usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
