@@ -3,6 +3,11 @@
     package="com.viniciusog.mypostapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--
+ Cria cache das images carregadas para não precisar ir na web carregar novamente
+    aula: 392
+    -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.camera2"
@@ -18,7 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.FiltroActivity"></activity>
+        <activity android:name=".activity.ComentariosActivity"></activity>
+        <activity android:name=".activity.VisualizarPostagemActivity" />
+        <activity android:name=".activity.FiltroActivity" />
         <activity android:name=".activity.PerfilAmigoActivity" />
         <activity
             android:name=".activity.EditarPerfilActivity"

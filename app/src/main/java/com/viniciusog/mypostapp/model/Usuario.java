@@ -1,5 +1,7 @@
 package com.viniciusog.mypostapp.model;
 
+import android.provider.ContactsContract;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.viniciusog.mypostapp.helper.ConfiguracaoFirebase;
@@ -27,6 +29,18 @@ public class Usuario implements Serializable {
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
         DatabaseReference usuariosRef = firebaseRef.child("usuarios").child( getId() );
         usuariosRef.setValue( this ); //O objeto usuario será adicionado no firebase
+    }
+
+    //Atualizar somente a quantidade de postagens
+    public void atualizarQtdPostagem() {
+        DatabaseReference usuarioRef = ConfiguracaoFirebase.getFirebaseDatabase()
+                .child("usuarios")
+                .child(getId());
+
+        HashMap<String, Object> dados = new HashMap<>();
+        dados.put("postagens", getPostagens());
+
+        usuarioRef.updateChildren(dados);
     }
 
     public void atualizar() {
