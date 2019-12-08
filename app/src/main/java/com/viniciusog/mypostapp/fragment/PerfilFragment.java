@@ -177,8 +177,8 @@ public class PerfilFragment extends Fragment {
 
         usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
 
-        //Não está funcionando e não sei porque
-        /*Recuperar foto do usuário
+        // Não está funcionando e não sei porque
+        /* Recuperar foto do usuário
         String caminhoFoto = usuarioLogado.getCaminhoFoto();
         if (caminhoFoto != null || !caminhoFoto.equals("")) {
             Uri url = Uri.parse(caminhoFoto);
