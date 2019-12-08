@@ -177,10 +177,21 @@ public class PerfilFragment extends Fragment {
 
         usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
 
-        //Recuperar foto do usuário
+        //Não está funcionando e não sei porque
+        /*Recuperar foto do usuário
         String caminhoFoto = usuarioLogado.getCaminhoFoto();
-        if (caminhoFoto != null) {
+        if (caminhoFoto != null || !caminhoFoto.equals("")) {
             Uri url = Uri.parse(caminhoFoto);
+            Glide.with(getActivity())
+                    .load(url)
+                    .into(circleFotoPerfil);
+        } else {
+            circleFotoPerfil.setImageResource(R.drawable.avatar);
+        }*/
+
+        //Recuperando e exibindo foto de perfil
+        Uri url = UsuarioFirebase.getUsuarioAtual().getPhotoUrl();
+        if (url != null) {
             Glide.with(getActivity())
                     .load(url)
                     .into(circleFotoPerfil);
