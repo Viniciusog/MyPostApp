@@ -168,11 +168,13 @@ public class PerfilAmigoActivity extends AppCompatActivity {
                 int tamanhoiImagem = tamanhoGrid / 3;
                 gridViewPerfil.setColumnWidth(tamanhoiImagem);
 
+                postagens = new ArrayList<>();
+
                 List<String> urlFotos = new ArrayList<>();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Postagem postagem = ds.getValue(Postagem.class);
                     Log.i("descricao postagem: ", postagem.getDescricao());
-                    postagens = new ArrayList<>();
+
                     postagens.add(postagem);
                     urlFotos.add(postagem.getCaminhoFoto());
                 }

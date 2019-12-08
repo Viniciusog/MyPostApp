@@ -123,7 +123,7 @@ public class PerfilFragment extends Fragment {
                 //Configurar tamanho do grid / pixel largura aparelho == pixel largura grid
                 int tamanhoGrid = getResources().getDisplayMetrics().widthPixels;
                 int tamanhoiImagem = tamanhoGrid / 3;
-                gridViewPerfil.setColumnWidth( tamanhoiImagem );
+                gridViewPerfil.setColumnWidth(tamanhoiImagem);
 
                 List<String> urlFotos = new ArrayList<>();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -134,8 +134,8 @@ public class PerfilFragment extends Fragment {
                 textPublicacoes.setText(String.valueOf(urlFotos.size()));
 
                 //Configurar adapter
-                adapterGrid = new AdapterGrid(getActivity(),R.layout.grid_postagem, urlFotos);
-                gridViewPerfil.setAdapter( adapterGrid );
+                adapterGrid = new AdapterGrid(getActivity(), R.layout.grid_postagem, urlFotos);
+                gridViewPerfil.setAdapter(adapterGrid);
             }
 
             @Override
@@ -143,7 +143,6 @@ public class PerfilFragment extends Fragment {
 
             }
         });
-
     }
 
     private void inicializarComponentes(View view) {
@@ -185,6 +184,8 @@ public class PerfilFragment extends Fragment {
             Glide.with(getActivity())
                     .load(url)
                     .into(circleFotoPerfil);
+        } else {
+            circleFotoPerfil.setImageResource(R.drawable.avatar);
         }
     }
 

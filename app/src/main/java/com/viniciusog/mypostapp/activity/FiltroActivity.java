@@ -148,7 +148,7 @@ public class FiltroActivity extends AppCompatActivity {
     //Aula 398
     private void abrirDialogCarregamento(String titulo) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle( titulo );
+        alert.setTitle(titulo);
         alert.setView(R.layout.carregamento);
         alert.setCancelable(false);
 

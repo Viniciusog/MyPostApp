@@ -19,7 +19,7 @@ import com.viniciusog.mypostapp.R;
 
 import java.util.List;
 
-public class AdapterGrid extends ArrayAdapter<String>  {
+public class AdapterGrid extends ArrayAdapter<String> {
 
     private Context context;
     private int layoutResource;
@@ -43,20 +43,20 @@ public class AdapterGrid extends ArrayAdapter<String>  {
 
         final ViewHolder viewHolder;
         //Caso a view não esteja inflada, precisaremos inflar
-        if ( convertView == null ) {
+        if (convertView == null) {
             viewHolder = new ViewHolder();
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(layoutResource, parent, false);
             viewHolder.imagem = convertView.findViewById(R.id.imageGridPerfil);
             viewHolder.progressBar = convertView.findViewById(R.id.progressGridPerfil);
 
-            convertView.setTag( viewHolder );
+            convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
         //Recupera dados da imagem * aula 392
-        String urlImagem = getItem( position );
+        String urlImagem = getItem(position);
 
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.displayImage(urlImagem, viewHolder.imagem, new ImageLoadingListener() {

@@ -43,7 +43,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
     private StorageReference storageRef;
     private String identificadorUsuario;
 
-    private String[] permissoesNecessarias = new String[] {
+    private String[] permissoesNecessarias = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE,
     };
 

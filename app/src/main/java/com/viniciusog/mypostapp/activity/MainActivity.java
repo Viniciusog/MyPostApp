@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Carregar o Feed assim que executar a main activity
         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
-        
 
 
     }
@@ -67,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *Método responsável por tratar o clique na  bottomNavigationViewEx
+     * Método responsável por tratar o clique na  bottomNavigationViewEx
+     *
      * @param viewEx
      */
     private void habilitarNavegacao(BottomNavigationViewEx viewEx) {
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                switch ( menuItem.getItemId() ) {
+                switch (menuItem.getItemId()) {
                     case R.id.ic_home: {
                         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
                         return true;

@@ -55,8 +55,8 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder> 
         final Feed feed = listaFeed.get(position);
         final Usuario usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
 
-        Uri uriFotoUsuario = Uri.parse( feed.getFotoUsuario() );
-        Uri uriFotoPostagem = Uri.parse( feed.getFotoPostagem() );
+        Uri uriFotoUsuario = Uri.parse(feed.getFotoUsuario());
+        Uri uriFotoPostagem = Uri.parse(feed.getFotoPostagem());
 
         Glide.with(context)
                 .load(uriFotoUsuario)
@@ -66,7 +66,7 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder> 
                 .load(uriFotoPostagem)
                 .into(holder.fotoPostagem);
 
-        holder.descricao.setText( feed.getDescricao() );
+        holder.descricao.setText(feed.getDescricao());
         holder.nome.setText(feed.getNomeUsuario());
 
         //Adicionar evento de clique nos comentarios
@@ -98,13 +98,13 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder> 
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 int qtdCurtidas = 0;
-                if ( dataSnapshot.hasChild("qtdCurtidas")) {
+                if (dataSnapshot.hasChild("qtdCurtidas")) {
                     PostagemCurtida postagemCurtida = dataSnapshot.getValue(PostagemCurtida.class);
                     qtdCurtidas = postagemCurtida.getQtdCurtidas();
                 }
 
                 //Verificar se já foi clicado ou não
-                if( dataSnapshot.hasChild(usuarioLogado.getId())){
+                if (dataSnapshot.hasChild(usuarioLogado.getId())) {
                     holder.likeButton.setLiked(true);
                 } else {
                     holder.likeButton.setLiked(false);
@@ -112,9 +112,9 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder> 
 
                 //Montar objeto para postagem curtida
                 final PostagemCurtida curtida = new PostagemCurtida();
-                curtida.setFeed( feed );
-                curtida.setQtdCurtidas( qtdCurtidas );
-                curtida.setUsuario( usuarioLogado );
+                curtida.setFeed(feed);
+                curtida.setQtdCurtidas(qtdCurtidas);
+                curtida.setUsuario(usuarioLogado);
 
 
                 //Adicionar evento para curtir uma foto

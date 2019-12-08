@@ -27,8 +27,8 @@ public class Usuario implements Serializable {
 
     public void salvar() {
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
-        DatabaseReference usuariosRef = firebaseRef.child("usuarios").child( getId() );
-        usuariosRef.setValue( this ); //O objeto usuario será adicionado no firebase
+        DatabaseReference usuariosRef = firebaseRef.child("usuarios").child(getId());
+        usuariosRef.setValue(this); //O objeto usuario será adicionado no firebase
     }
 
     //Atualizar somente a quantidade de postagens
@@ -45,13 +45,15 @@ public class Usuario implements Serializable {
 
     public void atualizar() {
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
-        DatabaseReference usuariosRef = firebaseRef.child("usuarios").child( getId() );
 
-        Map<String, Object> valoresUsuario = converterParaMap();
-        usuariosRef.updateChildren( valoresUsuario );
+        Map objeto = new HashMap();
+        objeto.put("/usuarios/" + getId() + "/nome", getNome());
+        objeto.put("/usuarios/" + getId() + "/caminhoFoto", getCaminhoFoto());
+
+        firebaseRef.updateChildren(objeto);
     }
 
-    public Map<String,Object> converterParaMap() {
+    public Map<String, Object> converterParaMap() {
         HashMap<String, Object> usuarioMap = new HashMap<>();
         usuarioMap.put("email", getEmail());
         usuarioMap.put("nome", getNome());

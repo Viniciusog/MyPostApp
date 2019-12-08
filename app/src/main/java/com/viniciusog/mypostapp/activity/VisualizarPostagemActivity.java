@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
@@ -33,7 +34,7 @@ public class VisualizarPostagemActivity extends AppCompatActivity {
         //Configura toolbar
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         toolbar.setTitle("Postagem");
-        setSupportActionBar( toolbar );
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
 

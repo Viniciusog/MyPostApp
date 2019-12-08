@@ -59,13 +59,13 @@ public class ComentariosActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
 
         //Configura recycler view
-        recyclerComentarios.setHasFixedSize( true );
+        recyclerComentarios.setHasFixedSize(true);
         recyclerComentarios.setLayoutManager(new LinearLayoutManager(this));
-        recyclerComentarios.setAdapter( adapterComentario );
+        recyclerComentarios.setAdapter(adapterComentario);
 
         //Recuperar id da postagem
         Bundle bundle = getIntent().getExtras();
-        if ( bundle != null) {
+        if (bundle != null) {
             idPostagem = bundle.getString("idPostagem");
         }
     }
@@ -79,7 +79,7 @@ public class ComentariosActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 listaComentarios.clear();
-                for ( DataSnapshot ds : dataSnapshot.getChildren()) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     listaComentarios.add(ds.getValue(Comentario.class));
                 }
                 adapterComentario.notifyDataSetChanged();
@@ -112,15 +112,15 @@ public class ComentariosActivity extends AppCompatActivity {
 
     public void salvarcomentario(View view) {
         String textoComentario = editComentario.getText().toString();
-        if(!textoComentario.equals("")) {
+        if (!textoComentario.equals("")) {
             Comentario comentario = new Comentario();
-            comentario.setIdPostagem( idPostagem );
-            comentario.setIdUsuario( usuarioLogado.getId() );
-            comentario.setNomeUsuario( usuarioLogado.getNome() );
-            comentario.setCaminhoFoto( usuarioLogado.getCaminhoFoto() );
-            comentario.setComentario( textoComentario );
+            comentario.setIdPostagem(idPostagem);
+            comentario.setIdUsuario(usuarioLogado.getId());
+            comentario.setNomeUsuario(usuarioLogado.getNome());
+            comentario.setCaminhoFoto(usuarioLogado.getCaminhoFoto());
+            comentario.setComentario(textoComentario);
 
-            if( comentario.salvar() ) {
+            if (comentario.salvar()) {
                 Toast.makeText(getApplicationContext(), "Comentário salvo com sucesso!",
                         Toast.LENGTH_SHORT).show();
             } else {

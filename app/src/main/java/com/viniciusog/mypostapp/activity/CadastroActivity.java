@@ -51,14 +51,14 @@ public class CadastroActivity extends AppCompatActivity {
                 String textoEmail = editEmail.getText().toString();
                 String textoSenha = editSenha.getText().toString();
 
-                if ( !textoNome.isEmpty()) {
-                    if ( !textoEmail.isEmpty()) {
-                        if ( !textoSenha.isEmpty()) {
+                if (!textoNome.isEmpty()) {
+                    if (!textoEmail.isEmpty()) {
+                        if (!textoSenha.isEmpty()) {
 
                             usuario = new Usuario();
-                            usuario.setNome( textoNome );
-                            usuario.setEmail( textoEmail );
-                            usuario.setSenha( textoSenha );
+                            usuario.setNome(textoNome);
+                            usuario.setEmail(textoEmail);
+                            usuario.setSenha(textoSenha);
                             cadastrarUsuario();
 
                         } else {
@@ -87,49 +87,49 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if ( task.isSuccessful() ) {
+                if (task.isSuccessful()) {
                     try {
                         progressBar.setVisibility(View.GONE);
 
                         //Salvar dados do usuário no Firebase
                         String idUsuario = task.getResult().getUser().getUid();
-                        usuario.setId( idUsuario );
+                        usuario.setId(idUsuario);
                         usuario.salvar();
 
                         //Salvar dados no profile do Firebase
-                        UsuarioFirebase.atualizarNomeUsuario( usuario.getNome() );
+                        UsuarioFirebase.atualizarNomeUsuario(usuario.getNome());
 
                         Toast.makeText(CadastroActivity.this,
                                 "Cadastrado com sucesso!",
                                 Toast.LENGTH_SHORT).show();
 
-                        startActivity( new Intent(CadastroActivity.this, MainActivity.class));
+                        startActivity(new Intent(CadastroActivity.this, MainActivity.class));
                         finish();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
 
                 } else {
-                     progressBar.setVisibility(View.GONE);
+                    progressBar.setVisibility(View.GONE);
 
-                     String erroExcecao = "";
+                    String erroExcecao = "";
 
-                     try {
-                         throw task.getException();
-                     } catch (FirebaseAuthWeakPasswordException e) {
+                    try {
+                        throw task.getException();
+                    } catch (FirebaseAuthWeakPasswordException e) {
                         erroExcecao = "Digite uma senha mais forte.";
-                     } catch (FirebaseAuthInvalidCredentialsException e) {
-                         erroExcecao = "Digite um e-mail válido.";
-                     } catch (FirebaseAuthUserCollisionException e) {
-                         erroExcecao = "Esta conta já está contratada!";
-                     } catch (Exception e ){
-                         erroExcecao = "Erro ao cadastrar usuário! " + e.getMessage();
-                         e.printStackTrace();
-                     }
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
+                        erroExcecao = "Digite um e-mail válido.";
+                    } catch (FirebaseAuthUserCollisionException e) {
+                        erroExcecao = "Esta conta já está contratada!";
+                    } catch (Exception e) {
+                        erroExcecao = "Erro ao cadastrar usuário! " + e.getMessage();
+                        e.printStackTrace();
+                    }
 
-                     Toast.makeText(CadastroActivity.this,
-                             "Erro" + erroExcecao,
-                             Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CadastroActivity.this,
+                            "Erro" + erroExcecao,
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -30,13 +30,13 @@ public class UsuarioFirebase {
             //Configurar objeto para a alteração do perfil
             UserProfileChangeRequest profile = new UserProfileChangeRequest
                     .Builder()
-                    .setDisplayName( nome )
+                    .setDisplayName(nome)
                     .build();
 
-            usuarioLogado.updateProfile( profile ).addOnCompleteListener(new OnCompleteListener<Void>() {
+            usuarioLogado.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    if ( !task.isSuccessful() ) {
+                    if (!task.isSuccessful()) {
                         Log.d("Perfil", "Erro ao atualizar nome de perfil!");
                     }
                 }
@@ -55,13 +55,13 @@ public class UsuarioFirebase {
             //Configurar objeto para a alteração do perfil
             UserProfileChangeRequest profile = new UserProfileChangeRequest
                     .Builder()
-                    .setPhotoUri( url )
+                    .setPhotoUri(url)
                     .build();
 
-            usuarioLogado.updateProfile( profile ).addOnCompleteListener(new OnCompleteListener<Void>() {
+            usuarioLogado.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    if ( !task.isSuccessful() ) {
+                    if (!task.isSuccessful()) {
                         Log.d("Perfil", "Erro ao atualizar foto de perfil!");
                     }
                 }
@@ -79,7 +79,7 @@ public class UsuarioFirebase {
         usuario.setId(firebaseUser.getUid());
         usuario.setNome(firebaseUser.getDisplayName());
 
-        if ( firebaseUser.getPhotoUrl() == null ) {
+        if (firebaseUser.getPhotoUrl() == null) {
             usuario.setCaminhoFoto("");
         } else {
             usuario.setCaminhoFoto(firebaseUser.getPhotoUrl().toString());
@@ -89,6 +89,6 @@ public class UsuarioFirebase {
 
     //Retorna o id do usuário logado
     public static String getIdentificadorUsuario() {
-            return getUsuarioAtual().getUid();
+        return getUsuarioAtual().getUid();
     }
 }

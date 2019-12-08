@@ -37,7 +37,7 @@ public class AdapterComentario extends RecyclerView.Adapter<AdapterComentario.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Comentario c = listaComentarios.get( position );
+        Comentario c = listaComentarios.get(position);
 
         holder.comentario.setText(c.getComentario());
         holder.nomeUsuario.setText(c.getNomeUsuario());

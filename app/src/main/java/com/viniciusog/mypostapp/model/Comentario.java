@@ -29,8 +29,8 @@ public class Comentario {
                 .child(getIdPostagem());
 
         String chaveComentario = comentariosRef.push().getKey();
-        setIdComentario( chaveComentario );
-        comentariosRef.child( getIdComentario() ).setValue(this);
+        setIdComentario(chaveComentario);
+        comentariosRef.child(getIdComentario()).setValue(this);
 
         return true;
     }

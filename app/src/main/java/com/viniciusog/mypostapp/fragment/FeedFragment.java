@@ -47,13 +47,13 @@ public class FeedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_feed, container, false);
+        View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
         //Configurações iniciais
         idUsuarioLogado = UsuarioFirebase.getIdentificadorUsuario();
         feedRef = ConfiguracaoFirebase.getFirebaseDatabase()
                 .child("feed")
-        .child(idUsuarioLogado);
+                .child(idUsuarioLogado);
         //inicializando componentes
         recyclerFeed = view.findViewById(R.id.recyclerFeed);
 
@@ -61,21 +61,21 @@ public class FeedFragment extends Fragment {
         adapterFeed = new AdapterFeed(listaFeed, getActivity());
         recyclerFeed.setHasFixedSize(true);
         recyclerFeed.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerFeed.setAdapter( adapterFeed );
+        recyclerFeed.setAdapter(adapterFeed);
 
 
         return view;
     }
 
-    private void listarFeed( ) {
+    private void listarFeed() {
         valueEventListenerFeed = feedRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for ( DataSnapshot ds : dataSnapshot.getChildren()) {
-                    listaFeed.add( ds.getValue(Feed.class));
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    listaFeed.add(ds.getValue(Feed.class));
                 }
                 //Reverte a lista para mostrar no feed as publicações das novas para as mais antigas
-                Collections.reverse( listaFeed );
+                Collections.reverse(listaFeed);
                 adapterFeed.notifyDataSetChanged();
             }
 

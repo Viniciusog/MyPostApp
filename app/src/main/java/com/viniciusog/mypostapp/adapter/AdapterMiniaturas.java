@@ -15,7 +15,7 @@ import com.zomato.photofilters.utils.ThumbnailItem;
 
 import java.util.List;
 
-public class AdapterMiniaturas  extends RecyclerView.Adapter<AdapterMiniaturas.MyViewHolder> {
+public class AdapterMiniaturas extends RecyclerView.Adapter<AdapterMiniaturas.MyViewHolder> {
 
     private List<ThumbnailItem> listaFiltros;
     private Context contexto;
@@ -34,7 +34,7 @@ public class AdapterMiniaturas  extends RecyclerView.Adapter<AdapterMiniaturas.M
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        ThumbnailItem item = listaFiltros.get( position );
+        ThumbnailItem item = listaFiltros.get(position);
 
         holder.foto.setImageBitmap(item.image);
         holder.nomeFiltro.setText(item.filterName);

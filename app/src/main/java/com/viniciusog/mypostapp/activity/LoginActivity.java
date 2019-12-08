@@ -51,9 +51,9 @@ public class LoginActivity extends AppCompatActivity {
                     if (!textoSenha.isEmpty()) {
 
                         usuario = new Usuario();
-                        usuario.setEmail( textoEmail );
-                        usuario.setSenha( textoSenha );
-                        validarLogin( usuario );
+                        usuario.setEmail(textoEmail);
+                        usuario.setSenha(textoSenha);
+                        validarLogin(usuario);
 
 
                     } else {
@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if ( task.isSuccessful() ) {
+                if (task.isSuccessful()) {
                     progressLogin.setVisibility(View.GONE);
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void verificarUsuarioLogado() {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-        if ( autenticacao.getCurrentUser() != null) {
+        if (autenticacao.getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
