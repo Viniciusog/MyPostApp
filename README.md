@@ -1,2 +1,2 @@
 # MyPostApp
-Meu aplicativo de postagens - Feito em Android utilizando Java e banco de dados Firebase
+Android application for posts - Made using Java and Firebase database.
